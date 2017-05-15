@@ -138,7 +138,7 @@ class PreparedSQLSniff extends Sniff {
 
 				$bad_variables = array_filter(
 					$this->get_interpolated_variables( $this->tokens[ $this->i ]['content'] ),
-					create_function( '$symbol', 'return ( $symbol !== "wpdb" );' ) // Replace this with closure once 5.3 is minimum requirement.
+					function ( $symbol ) { return ( $symbol !== 'wpdb' ); }
 				);
 
 				foreach ( $bad_variables as $bad_variable ) {

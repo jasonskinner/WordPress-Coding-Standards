@@ -24,11 +24,15 @@ When you introduce new `public` sniff properties, or your sniff extends a class 
 Sometimes, a sniff will flag code which upon further inspection by a human turns out to be OK.
 If the sniff you are writing is susceptible to this, please consider adding the ability to [whitelist lines of code](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/wiki/Whitelisting-code-which-flags-errors).
 
-To this end, the `WordPress_Sniff::has_whitelist_comment()` method was introduced.
+To this end, the `\WordPressCS\WordPress\Sniff::has_whitelist_comment()` method was introduced.
 
 Example usage:
 ```php
-class WordPress_Sniffs_CSRF_NonceVerificationSniff extends WordPress_Sniff {
+namespace WordPressCS\WordPress\Sniffs\CSRF;
+
+use WordPressCS\WordPress\Sniff;
+
+class NonceVerificationSniff extends Sniff {
 
 	public function process_token( $stackPtr ) {
 
@@ -54,7 +58,7 @@ If you have installed `phpcs` and the WordPress-Coding-Standards as [noted in th
 
 ```sh
 composer install
-vendor/bin/phpunit --filter WordPress tests/AllTests.php
+vendor/bin/phpunit --bootstrap=/path/to/WPCS/WordPress/PHPCSAliases.php --filter WordPress tests/AllTests.php
 ```
 
 Expected output:
@@ -71,13 +75,16 @@ will eventually help them to test the code before merging in.
 ## Unit Testing conventions
 
 If you see inside the `WordPress/Tests`, the structure mimics the `WordPress/Sniffs`. For example,
-the `WordPress/Sniffs/Arrays/ArrayDeclarationSniff.php` sniff has unit test class defined in
-`WordPress/Tests/Arrays/ArrayDeclarationUnitTest.php` that check `WordPress/Tests/Arrays/ArrayDeclarationUnitTest.inc`
-file. See the file naming convention? Lets take a look what inside `ArrayDeclarationUnitTest.php`:
+the `WordPress/Sniffs/Arrays/ArrayDeclarationSniff.php` sniff has its unit test class defined in
+`WordPress/Tests/Arrays/ArrayDeclarationUnitTest.php` which checks the
+`WordPress/Tests/Arrays/ArrayDeclarationUnitTest.inc` file. See the file naming convention?
+Lets take a look what inside `ArrayDeclarationUnitTest.php`:
 
 ```php
 ...
-class WordPress_Tests_Arrays_ArrayDeclarationUnitTest extends AbstractSniffUnitTest
+namespace WordPressCS\WordPress\Tests\Arrays;
+
+class ArrayDeclarationUnitTest extends \AbstractSniffUnitTest
 {
     public function getErrorList()
     {
@@ -100,7 +107,7 @@ If you run:
 
 ```sh
 $ cd /path-to-cloned/phpcs
-$ ./scripts/phpcs --standard=Wordpress -s CodeSniffer/Standards/WordPress/Tests/Arrays/ArrayDeclarationUnitTest.inc
+$ ./bin/phpcs --standard=Wordpress -s CodeSniffer/Standards/WordPress/Tests/Arrays/ArrayDeclarationUnitTest.inc
 ...
 --------------------------------------------------------------------------------
 FOUND 8 ERROR(S) AND 2 WARNING(S) AFFECTING 6 LINE(S)

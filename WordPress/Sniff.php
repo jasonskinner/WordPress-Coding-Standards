@@ -1080,6 +1080,11 @@ abstract class Sniff implements \PHP_CodeSniffer_Sniff {
 	 */
 	protected function has_whitelist_comment( $comment, $stackPtr ) {
 
+		// Respect the PHPCS 3.x --ignore-annotations setting.
+		if ( true === PHPCSHelper::ignoreAnnotations( $this->phpcsFile ) ) {
+			return false;
+		}
+
 		$lastPtr     = $this->get_last_ptr_on_line( $stackPtr );
 		$end_of_line = $lastPtr;
 

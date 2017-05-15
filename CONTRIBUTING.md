@@ -137,9 +137,9 @@ FOUND 8 ERROR(S) AND 2 WARNING(S) AFFECTING 6 LINE(S)
 ```
 
 You'll see the line number and number of ERRORs we need to return in `getErrorList` method.
-In line #31 there are two ERRORs belong to `WordPress.WhiteSpace.OperatorSpacing` sniff and
-it MUST not included in `ArrayDeclarationUnitTest` (that's why we only return 2 errros for line #31).
-Also there's `getWarningList` method in unit test class that returns an array of line numbers
+In line #31 there are two ERRORs which belong to `WordPress.WhiteSpace.OperatorSpacing` sniff and
+it MUST not be included in `ArrayDeclarationUnitTest` (that's why we only return 2 errors for line #31).
+Also there's a `getWarningList` method in the unit test class that returns an array of line numbers
 indicating WARNINGs.
 
 ## Sniff Code Standards

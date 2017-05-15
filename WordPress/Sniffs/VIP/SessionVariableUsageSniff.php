@@ -9,6 +9,15 @@
 
 namespace WordPressCS\WordPress\Sniffs\VIP;
 
+use WordPressCS\WordPress\PHPCSHelper;
+
+/*
+ * Alias the PHPCS 3.x classes to their PHPCS 2.x equivalent if necessary.
+ */
+if ( version_compare( PHPCSHelper::getVersion(), '2.99.99', '>' ) ) {
+    include_once __DIR__ . DIRECTORY_SEPARATOR . 'PHPCSAliases.php';
+}
+
 /**
  * Discourages the use of the session variable.
  * Creating a session writes a file to the server and is unreliable in a multi-server environment.

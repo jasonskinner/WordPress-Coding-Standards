@@ -9,6 +9,15 @@
 
 namespace WordPressCS\WordPress\Sniffs\WP;
 
+use WordPressCS\WordPress\PHPCSHelper;
+
+/*
+ * Alias the PHPCS 3.x classes to their PHPCS 2.x equivalent if necessary.
+ */
+if ( version_compare( PHPCSHelper::getVersion(), '2.99.99', '>' ) ) {
+    include_once __DIR__ . DIRECTORY_SEPARATOR . 'PHPCSAliases.php';
+}
+
 /**
  * Makes sure scripts and styles are enqueued and not explicitly echo'd.
  *

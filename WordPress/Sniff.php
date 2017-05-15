@@ -9,6 +9,23 @@
 
 namespace WordPressCS\WordPress;
 
+use WordPressCS\WordPress\PHPCSHelper;
+
+/*
+ * Alias the PHPCS 3.x classes to their PHPCS 2.x equivalent if necessary.
+ *
+ * {@internal Using `2.999` as version nr to prevent issues with people
+ * using PHPCS 3.x alpha/beta/RC releases.
+ *
+ * Also: while the minimum requirements for the PHPCS 3.x compatible version
+ * is PHPCS 3.0.2, this will prevent fatal errors being thrown while processing
+ * the ruleset as PHPCS only loads the version check bootstrap after the
+ * sniffs have been autoloaded. }}
+ */
+if ( version_compare( PHPCSHelper::getVersion(), '2.99.99', '>' ) ) {
+    include_once __DIR__ . DIRECTORY_SEPARATOR . 'PHPCSAliases.php';
+}
+
 /**
  * Represents a PHP_CodeSniffer sniff for sniffing WordPress coding standards.
  *

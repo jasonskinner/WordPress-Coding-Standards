@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\Functions;
+
 /**
  * Unit test class for the DontExtract sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   0.10.0
  */
-class WordPress_Tests_Functions_DontExtractUnitTest extends AbstractSniffUnitTest {
+class DontExtractUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

@@ -7,6 +7,8 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\WP;
+
 use WordPressCS\WordPress\PHPCSHelper;
 
 /**
@@ -15,7 +17,7 @@ use WordPressCS\WordPress\PHPCSHelper;
  * @package WPCS\WordPressCodingStandards
  * @since   0.10.0
  */
-class WordPress_Tests_WP_I18nUnitTest extends AbstractSniffUnitTest {
+class I18nUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Fill in the $text_domain property to test domain check functionality.

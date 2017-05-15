@@ -7,6 +7,8 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\Files;
+
 /**
  * Unit test class for the FileName sniff.
  *
@@ -14,7 +16,7 @@
  * @since   2013-06-11
  * @since   0.11.0     Actually added tests ;-)
  */
-class WordPress_Tests_Files_FileNameUnitTest extends AbstractSniffUnitTest {
+class FileNameUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Error files with the expected nr of errors.

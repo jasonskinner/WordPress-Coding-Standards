@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\PHP;
+
 /**
  * Unit test class for the StrictComparisons sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   0.4.0
  */
-class WordPress_Tests_PHP_StrictComparisonsUnitTest extends AbstractSniffUnitTest {
+class StrictComparisonsUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

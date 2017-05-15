@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\VIP;
+
 /**
  * Unit test class for the VIP_RestrictedFunctions sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   0.3.0
  */
-class WordPress_Tests_VIP_RestrictedFunctionsUnitTest extends AbstractSniffUnitTest {
+class RestrictedFunctionsUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

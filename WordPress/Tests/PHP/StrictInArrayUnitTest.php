@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\PHP;
+
 /**
  * Unit test class for the StrictInArray sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   0.9.0
  */
-class WordPress_Tests_PHP_StrictInArrayUnitTest extends AbstractSniffUnitTest {
+class StrictInArrayUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

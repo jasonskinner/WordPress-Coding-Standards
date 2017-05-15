@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\DB;
+
 /**
  * Unit test class for the DB_RestrictedFunctions sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   0.10.0
  */
-class WordPress_Tests_DB_RestrictedFunctionsUnitTest extends AbstractSniffUnitTest {
+class RestrictedFunctionsUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

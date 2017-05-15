@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\WP;
+
 /**
  * Unit test class for the EnqueuedResources sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   0.3.0
  */
-class WordPress_Tests_WP_EnqueuedResourcesUnitTest extends AbstractSniffUnitTest {
+class EnqueuedResourcesUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

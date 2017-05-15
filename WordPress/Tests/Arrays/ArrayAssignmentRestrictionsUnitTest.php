@@ -7,13 +7,17 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\Arrays;
+
+use WordPressCS\WordPress\AbstractArrayAssignmentRestrictionsSniff;
+
 /**
  * Unit test class for the ArrayAssignmentRestrictions sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   0.3.0
  */
-class WordPress_Tests_Arrays_ArrayAssignmentRestrictionsUnitTest extends AbstractSniffUnitTest {
+class ArrayAssignmentRestrictionsUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Fill in the $groups property to test the abstract class.
@@ -21,7 +25,7 @@ class WordPress_Tests_Arrays_ArrayAssignmentRestrictionsUnitTest extends Abstrac
 	protected function setUp() {
 		parent::setUp();
 
-		WordPress_AbstractArrayAssignmentRestrictionsSniff::$groups = array(
+		AbstractArrayAssignmentRestrictionsSniff::$groups = array(
 			'foobar' => array(
 				'type'    => 'error',
 				'message' => 'Found assignment value of %s to be %s',

@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\Arrays;
+
 /**
  * Unit test class for the ArrayDeclarationSpacing sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   0.11.0
  */
-class WordPress_Tests_Arrays_ArrayDeclarationSpacingUnitTest extends AbstractSniffUnitTest {
+class ArrayDeclarationSpacingUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

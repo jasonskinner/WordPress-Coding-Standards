@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\NamingConventions;
+
 /**
  * Unit test class for the PrefixAllGlobals sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   0.12.0
  */
-class WordPress_Tests_NamingConventions_PrefixAllGlobalsUnitTest extends AbstractSniffUnitTest {
+class PrefixAllGlobalsUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

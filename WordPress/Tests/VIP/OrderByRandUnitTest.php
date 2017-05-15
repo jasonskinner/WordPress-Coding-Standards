@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\VIP;
+
 /**
  * Unit test class for the OrderByRand sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   0.9.0
  */
-class WordPress_Tests_VIP_OrderByRandUnitTest extends AbstractSniffUnitTest {
+class OrderByRandUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

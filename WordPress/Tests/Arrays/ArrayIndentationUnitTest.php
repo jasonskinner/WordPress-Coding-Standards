@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\Arrays;
+
 /**
  * Unit test class for the ArrayIndentation sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   0.12.0
  */
-class WordPress_Tests_Arrays_ArrayIndentationUnitTest extends AbstractSniffUnitTest {
+class ArrayIndentationUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

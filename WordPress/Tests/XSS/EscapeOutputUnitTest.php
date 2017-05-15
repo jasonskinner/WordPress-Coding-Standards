@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\XSS;
+
 /**
  * Unit test class for the EscapeOutput sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   2013-06-11
  */
-class WordPress_Tests_XSS_EscapeOutputUnitTest extends AbstractSniffUnitTest {
+class EscapeOutputUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

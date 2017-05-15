@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\WP;
+
 /**
  * Unit test class for the PreparedSQL sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   0.8.0
  */
-class WordPress_Tests_WP_PreparedSQLUnitTest extends AbstractSniffUnitTest {
+class PreparedSQLUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\WhiteSpace;
+
 /**
  * Unit test class for the DisallowInlineTabs sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   0.12.0
  */
-class WordPress_Tests_WhiteSpace_DisallowInlineTabsUnitTest extends AbstractSniffUnitTest {
+class DisallowInlineTabsUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

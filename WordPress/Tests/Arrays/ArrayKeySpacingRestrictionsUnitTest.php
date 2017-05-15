@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\Arrays;
+
 /**
  * Unit test class for the ArrayKeySpacingRestrictions sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   0.3.0
  */
-class WordPress_Tests_Arrays_ArrayKeySpacingRestrictionsUnitTest extends AbstractSniffUnitTest {
+class ArrayKeySpacingRestrictionsUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

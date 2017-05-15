@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\PHP;
+
 /**
  * Unit test class for the POSIXFunctions sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   0.10.0
  */
-class WordPress_Tests_PHP_POSIXFunctionsUnitTest extends AbstractSniffUnitTest {
+class POSIXFunctionsUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

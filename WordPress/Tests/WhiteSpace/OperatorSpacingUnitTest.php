@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\WhiteSpace;
+
 /**
  * Unit test class for the OperatorSpacing sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   2013-06-11
  */
-class WordPress_Tests_WhiteSpace_OperatorSpacingUnitTest extends AbstractSniffUnitTest {
+class OperatorSpacingUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

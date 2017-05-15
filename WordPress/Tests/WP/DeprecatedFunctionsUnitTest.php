@@ -7,6 +7,8 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\WP;
+
 /**
  * Unit test class for the WP_DeprecatedFunctions sniff.
  *
@@ -14,7 +16,7 @@
  *
  * @since   0.11.0
  */
-class WordPress_Tests_WP_DeprecatedFunctionsUnitTest extends AbstractSniffUnitTest {
+class DeprecatedFunctionsUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

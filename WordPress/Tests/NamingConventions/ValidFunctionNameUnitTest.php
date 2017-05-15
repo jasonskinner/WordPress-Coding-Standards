@@ -7,13 +7,15 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Tests\NamingConventions;
+
 /**
  * Unit test class for the ValidFunctionName sniff.
  *
  * @package WPCS\WordPressCodingStandards
  * @since   2013-06-11
  */
-class WordPress_Tests_NamingConventions_ValidFunctionNameUnitTest extends AbstractSniffUnitTest {
+class ValidFunctionNameUnitTest extends \AbstractSniffUnitTest {
 
 	/**
 	 * Returns the lines where errors should occur.

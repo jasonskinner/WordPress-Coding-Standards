@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\VIP;
+
+use WordPressCS\WordPress\AbstractArrayAssignmentRestrictionsSniff;
+
 /**
  * Flag using orderby => rand.
  *
@@ -16,7 +20,7 @@
  *
  * @since   0.9.0
  */
-class WordPress_Sniffs_VIP_OrderByRandSniff extends WordPress_AbstractArrayAssignmentRestrictionsSniff {
+class OrderByRandSniff extends AbstractArrayAssignmentRestrictionsSniff {
 
 	/**
 	 * Groups of variables to restrict.

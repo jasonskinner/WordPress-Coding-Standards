@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\Arrays;
+
+use WordPressCS\WordPress\Sniff;
+
 /**
  * Enforces WordPress array indentation for multi-line arrays.
  *
@@ -16,7 +20,7 @@
  *
  * @since   0.12.0
  */
-class WordPress_Sniffs_Arrays_ArrayIndentationSniff extends WordPress_Sniff {
+class ArrayIndentationSniff extends Sniff {
 
 	/**
 	 * The --tab-width CLI value that is being used.

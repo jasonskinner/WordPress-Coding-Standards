@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\Functions;
+
+use WordPressCS\WordPress\AbstractFunctionRestrictionsSniff;
+
 /**
  * Restricts the usage of extract().
  *
@@ -14,9 +18,10 @@
  *
  * @package WPCS\WordPressCodingStandards
  *
- * @since   0.10.0 Previously this check was contained within WordPress_Sniffs_VIP_RestrictedFunctionsSniff.
+ * @since   0.10.0 Previously this check was contained within the
+ *                 \WordPressCS\WordPress\Sniffs\VIP\RestrictedFunctionsSniff.
  */
-class WordPress_Sniffs_Functions_DontExtractSniff extends WordPress_AbstractFunctionRestrictionsSniff {
+class DontExtractSniff extends AbstractFunctionRestrictionsSniff {
 
 	/**
 	 * Groups of functions to restrict.

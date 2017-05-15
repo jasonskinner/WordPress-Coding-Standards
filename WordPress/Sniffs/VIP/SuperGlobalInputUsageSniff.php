@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\VIP;
+
+use WordPressCS\WordPress\Sniff;
+
 /**
  * Flag any usage of super global input var ( _GET / _POST / etc. ).
  *
@@ -15,9 +19,9 @@
  * @package WPCS\WordPressCodingStandards
  *
  * @since   0.3.0
- * @since   0.4.0 This class now extends WordPress_Sniff.
+ * @since   0.4.0 This class now extends \WordPressCS\WordPress\Sniff.
  */
-class WordPress_Sniffs_VIP_SuperGlobalInputUsageSniff extends WordPress_Sniff {
+class SuperGlobalInputUsageSniff extends Sniff {
 
 	/**
 	 * Returns an array of tokens this test wants to listen for.

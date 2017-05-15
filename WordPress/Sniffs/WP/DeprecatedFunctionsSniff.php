@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\WP;
+
+use WordPressCS\WordPress\AbstractFunctionRestrictionsSniff;
+
 /**
  * Restricts the use of various deprecated WordPress functions and suggests alternatives.
  *
@@ -14,7 +18,7 @@
  *
  * @since   0.11.0
  */
-class WordPress_Sniffs_WP_DeprecatedFunctionsSniff extends WordPress_AbstractFunctionRestrictionsSniff {
+class DeprecatedFunctionsSniff extends AbstractFunctionRestrictionsSniff {
 
 	/**
 	 * Minimum WordPress version.

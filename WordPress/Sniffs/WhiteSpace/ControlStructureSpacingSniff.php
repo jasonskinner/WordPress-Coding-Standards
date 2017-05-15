@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\WhiteSpace;
+
+use WordPressCS\WordPress\Sniff;
+
 /**
  * Enforces spacing around logical operators and assignments, based upon Squiz code.
  *
@@ -15,14 +19,14 @@
  * @since   0.1.0
  * @since   2013-06-11 This sniff no longer supports JS.
  * @since   0.3.0      This sniff now has the ability to fix most errors it flags.
- * @since   0.7.0      This class now extends WordPress_Sniff.
+ * @since   0.7.0      This class now extends \WordPressCS\WordPress\Sniff.
  *
  * Last synced with base class 2017-01-15 at commit b024ad84656c37ef5733c6998ebc1e60957b2277.
  * Note: This class has diverged quite far from the original. All the same, checking occassionally
  * to see if there are upstream fixes made from which this sniff can benefit, is warranted.
  * @link    https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Squiz/Sniffs/WhiteSpace/ControlStructureSpacingSniff.php
  */
-class WordPress_Sniffs_WhiteSpace_ControlStructureSpacingSniff extends WordPress_Sniff {
+class ControlStructureSpacingSniff extends Sniff {
 
 	/**
 	 * Check for blank lines on start/end of control structures.

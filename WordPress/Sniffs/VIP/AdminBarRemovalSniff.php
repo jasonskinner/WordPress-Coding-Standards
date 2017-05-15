@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\VIP;
+
+use WordPressCS\WordPress\AbstractFunctionParameterSniff;
+
 /**
  * Discourages removal of the admin bar.
  *
@@ -15,11 +19,11 @@
  * @package WPCS\WordPressCodingStandards
  *
  * @since   0.3.0
- * @since   0.11.0 - Extends the WordPress_AbstractFunctionParameterSniff class.
+ * @since   0.11.0 - Extends the \WordPressCS\WordPress\AbstractFunctionParameterSniff class.
  *                 - Added the $remove_only property.
  *                 - Now also sniffs for manipulation of the admin bar visibility through CSS.
  */
-class WordPress_Sniffs_VIP_AdminBarRemovalSniff extends WordPress_AbstractFunctionParameterSniff {
+class AdminBarRemovalSniff extends AbstractFunctionParameterSniff {
 
 	/**
 	 * A list of tokenizers this sniff supports.
@@ -393,8 +397,8 @@ class WordPress_Sniffs_VIP_AdminBarRemovalSniff extends WordPress_AbstractFuncti
 	 *
 	 * {@internal This is a method stub, doing only what is needed for this sniff.
 	 * If at some point in the future other sniff would need similar functionality,
-	 * this method should be moved to the WordPress_Sniff class and expanded to cover
-	 * all types of comparisons.}}
+	 * this method should be moved to the \WordPressCS\WordPress\Sniff class and
+	 * expanded to cover all types of comparisons.}}
 	 *
 	 * @since 0.11.0
 	 *

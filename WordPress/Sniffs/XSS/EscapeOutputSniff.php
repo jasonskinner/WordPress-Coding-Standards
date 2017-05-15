@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\XSS;
+
+use WordPressCS\WordPress\Sniff;
+
 /**
  * Verifies that all outputted strings are escaped.
  *
@@ -15,11 +19,11 @@
  * @package WPCS\WordPressCodingStandards
  *
  * @since   2013-06-11
- * @since   0.4.0 This class now extends WordPress_Sniff.
+ * @since   0.4.0 This class now extends \WordPressCS\WordPress\Sniff.
  * @since   0.5.0 The various function list properties which used to be contained in this class
- *                have been moved to the WordPress_Sniff parent class.
+ *                have been moved to the \WordPressCS\WordPress\Sniff parent class.
  */
-class WordPress_Sniffs_XSS_EscapeOutputSniff extends WordPress_Sniff {
+class EscapeOutputSniff extends Sniff {
 
 	/**
 	 * Custom list of functions which escape values for output.
@@ -44,7 +48,7 @@ class WordPress_Sniffs_XSS_EscapeOutputSniff extends WordPress_Sniff {
 	 *
 	 * @since      0.3.0
 	 * @deprecated 0.5.0 Use $customEscapingFunctions instead.
-	 * @see        WordPress_Sniffs_XSS_EscapeOutputSniff::$customEscapingFunctions
+	 * @see        \WordPressCS\WordPress\Sniffs\XSS\EscapeOutputSniff::$customEscapingFunctions
 	 *
 	 * @var string|string[]
 	 */

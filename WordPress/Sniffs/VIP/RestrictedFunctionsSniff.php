@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\VIP;
+
+use WordPressCS\WordPress\AbstractFunctionRestrictionsSniff;
+
 /**
  * Restricts usage of some functions in VIP context.
  *
@@ -14,18 +18,19 @@
  *
  * @since   0.3.0
  * @since   0.10.0 The checks for `extract()` and the POSIX functions have been replaced by
- *                 the stand-alone sniffs WordPress_Sniffs_Functions_DontExtractSniff and
- *                 WordPress_Sniffs_PHP_POSIXFunctionsSniff respectively.
+ *                 the stand-alone sniffs \WordPressCS\WordPress\Sniffs\Functions\DontExtractSniff
+ *                 and \WordPressCS\WordPress\Sniffs\PHP\POSIXFunctionsSniff respectively.
  * @since   0.11.0 The checks for `create_function()`, `serialize()`/`unserialize()` and
- *                 `urlencode` have been moved to the stand-alone sniff
- *                 WordPress_Sniffs_PHP_DiscouragedPHPFunctionsSniff.
+ *                 `urlencode` have been moved to the stand-alone
+ *                 \WordPressCS\WordPress\Sniffs\PHP\DiscouragedPHPFunctionsSniff.
  *                 The checks for PHP developer functions, `error_reporting` and `phpinfo`have been
- *                 moved to the stand-alone sniff WordPress_Sniffs_PHP_DevelopmentFunctionsSniff.
+ *                 moved to the stand-alone \WordPressCS\WordPress\Sniffs\PHP\DevelopmentFunctionsSniff.
  *                 The check for `parse_url()` and `curl_*` have been moved to the stand-alone sniff
- *                 WordPress_Sniffs_WP_AlternativeFunctionsSniff.
- *                 The check for `eval()` now defers to the upstream Squiz.PHP.Eval sniff.
+ *                 \WordPressCS\WordPress\Sniffs\WP\AlternativeFunctionsSniff.
+ *                 The check for `eval()` now defers to the upstream
+ *                 \PHP_CodeSniffer\Standards\Squiz\Sniffs\PHP\EvalSniff.
  */
-class WordPress_Sniffs_VIP_RestrictedFunctionsSniff extends WordPress_AbstractFunctionRestrictionsSniff {
+class RestrictedFunctionsSniff extends AbstractFunctionRestrictionsSniff {
 
 	/**
 	 * Groups of functions to restrict.

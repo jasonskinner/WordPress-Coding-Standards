@@ -7,6 +7,8 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\PHP;
+
 /**
  * Discourages the use of various native PHP functions and suggests alternatives.
  *
@@ -14,22 +16,22 @@
  *
  * @since      0.1.0
  * @since      0.10.0 The checks for the POSIX functions have been replaced by the stand-alone
- *                    sniff WordPress_Sniffs_PHP_POSIXFunctionsSniff.
+ *                    sniff \WordPressCS\WordPress\Sniffs\PHP\POSIXFunctionsSniff.
  * @deprecated 0.11.0 The checks for the PHP development functions have been replaced by the
- *                    stand-alone sniff WordPress_Sniffs_PHP_DevelopmentFunctionsSniff.
+ *                    stand-alone \WordPressCS\WordPress\Sniffs\PHP\DevelopmentFunctionsSniff.
  *                    The checks for the WP deprecated functions have been replaced by the
- *                    stand-alone sniff WordPress_Sniffs_WP_DeprecatedFunctionsSniff.
+ *                    stand-alone \WordPressCS\WordPress\Sniffs\WP\DeprecatedFunctionsSniff.
  *                    The checks for the PHP functions which have a WP alternative has been replaced
- *                    by the stand-alone sniff WordPress_Sniffs_WP_AlternativeFunctionsSniff.
+ *                    by the stand-alone \WordPressCS\WordPress\Sniffs\WP\AlternativeFunctionsSniff.
  *                    The checks for the WP discouraged functions have been replaced by the
- *                    stand-alone sniff WordPress_Sniffs_WP_DiscouragedFunctionsSniff.
+ *                    stand-alone sniff \WordPressCS\WordPress\Sniffs\WP\DiscouragedFunctionsSniff.
  *                    The checks for the PHP discouraged functions have been replaced by the
- *                    stand-alone sniff WordPress_Sniffs_WP_DiscouragedPHPFunctionsSniff.
+ *                    stand-alone sniff \WordPressCS\WordPress\Sniffs\WP\DiscouragedPHPFunctionsSniff.
  *                    The check for the `register_globals` has been removed as there is no such
  *                    function. To check for `register_globals` ini directive use
- *                    PHPCompatibility_Sniffs_PHP_DeprecatedIniDirectivesSniff from wimg/PHPCompatibility.
+ *                    PHPCompatibility.PHP.DeprecatedIniDirectives from wimg/PHPCompatibility.
  */
-class WordPress_Sniffs_PHP_DiscouragedFunctionsSniff {
+class DiscouragedFunctionsSniff {
 
 	/**
 	 * Don't use.

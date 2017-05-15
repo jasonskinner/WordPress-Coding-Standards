@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\Functions;
+
+use WordPressCS\WordPress\AbstractFunctionRestrictionsSniff;
+
 /**
  * Restricts usage of some functions.
  *
@@ -14,13 +18,13 @@
  *
  * @since      0.3.0
  * @deprecated 0.10.0 The functionality which used to be contained in this class has been moved to
- *                    the WordPress_AbstractFunctionRestrictionsSniff class.
+ *                    the \WordPressCS\WordPress\AbstractFunctionRestrictionsSniff class.
  *                    This class is left here to prevent backward-compatibility breaks for
  *                    custom sniffs extending the old class and references to this
  *                    sniff from custom phpcs.xml files.
- * @see        WordPress_AbstractFunctionRestrictionsSniff
+ * @see        \WordPressCS\WordPress\AbstractFunctionRestrictionsSniff
  */
-class WordPress_Sniffs_Functions_FunctionRestrictionsSniff extends WordPress_AbstractFunctionRestrictionsSniff {
+class FunctionRestrictionsSniff extends AbstractFunctionRestrictionsSniff {
 
 	/**
 	 * Groups of functions to restrict.

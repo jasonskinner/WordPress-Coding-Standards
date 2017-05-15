@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\PHP;
+
+use WordPressCS\WordPress\AbstractFunctionRestrictionsSniff;
+
 /**
  * Perl compatible regular expressions (PCRE, preg_ functions) should be used in preference
  * to their POSIX counterparts.
@@ -16,10 +20,11 @@
  *
  * @package WPCS\WordPressCodingStandards
  *
- * @since   0.10.0 Previously this check was contained within WordPress_Sniffs_VIP_RestrictedFunctionsSniff
- *                 and the WordPress_Sniffs_PHP_DiscouragedPHPFunctionsSniff.
+ * @since   0.10.0 Previously this check was contained within the
+ *                 \WordPressCS\WordPress\Sniffs\VIP\RestrictedFunctionsSniff
+ *                 and the \WordPressCS\WordPress\Sniffs\PHP\DiscouragedPHPFunctionsSniff.
  */
-class WordPress_Sniffs_PHP_POSIXFunctionsSniff extends WordPress_AbstractFunctionRestrictionsSniff {
+class POSIXFunctionsSniff extends AbstractFunctionRestrictionsSniff {
 
 	/**
 	 * Groups of functions to restrict.

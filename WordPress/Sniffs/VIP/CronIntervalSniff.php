@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\VIP;
+
+use WordPressCS\WordPress\Sniff;
+
 /**
  * Flag cron schedules less than 15 minutes.
  *
@@ -15,10 +19,10 @@
  * @package WPCS\WordPressCodingStandards
  *
  * @since   0.3.0
- * @since   0.11.0 - Extends the WordPress_Sniff class.
+ * @since   0.11.0 - Extends the \WordPressCS\WordPress\Sniff class.
  *                 - Now deals correctly with WP time constants.
  */
-class WordPress_Sniffs_VIP_CronIntervalSniff extends WordPress_Sniff {
+class CronIntervalSniff extends Sniff {
 
 	/**
 	 * Known WP Time constant names and their value.

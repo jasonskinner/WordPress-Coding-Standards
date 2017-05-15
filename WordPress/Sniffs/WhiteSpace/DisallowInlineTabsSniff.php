@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\WhiteSpace;
+
+use WordPressCS\WordPress\Sniff;
+
 /**
  * Enforces using spaces for mid-line alignment.
  *
@@ -16,7 +20,7 @@
  *
  * @since   0.12.0
  */
-class WordPress_Sniffs_WhiteSpace_DisallowInlineTabsSniff extends WordPress_Sniff {
+class DisallowInlineTabsSniff extends Sniff {
 
 	/**
 	 * The --tab-width CLI value that is being used.

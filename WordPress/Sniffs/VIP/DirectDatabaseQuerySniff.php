@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\VIP;
+
+use WordPressCS\WordPress\Sniff;
+
 /**
  * Flag Database direct queries.
  *
@@ -17,9 +21,9 @@
  *
  * @since   0.3.0
  * @since   0.6.0  Removed the add_unique_message() function as it is no longer needed.
- * @since   0.11.0 This class now extends WordPress_Sniff.
+ * @since   0.11.0 This class now extends \WordPressCS\WordPress\Sniff.
  */
-class WordPress_Sniffs_VIP_DirectDatabaseQuerySniff extends WordPress_Sniff {
+class DirectDatabaseQuerySniff extends Sniff {
 
 	/**
 	 * List of custom cache get functions.

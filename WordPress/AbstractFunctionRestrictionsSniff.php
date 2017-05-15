@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress;
+
+use WordPressCS\WordPress\Sniff;
+
 /**
  * Restricts usage of some functions.
  *
@@ -15,11 +19,11 @@
  * @since   0.3.0
  * @since   0.10.0 Class became a proper abstract class. This was already the behaviour.
  *                 Moved the file and renamed the class from
- *                 `WordPress_Sniffs_Functions_FunctionRestrictionsSniff` to
- *                 `WordPress_AbstractFunctionRestrictionsSniff`.
- * @since   0.11.0 Extends the WordPress_Sniff class.
+ *                 `\WordPressCS\WordPress\Sniffs\Functions\FunctionRestrictionsSniff` to
+ *                 `\WordPressCS\WordPress\AbstractFunctionRestrictionsSniff`.
+ * @since   0.11.0 Extends the \WordPressCS\WordPress\Sniff class.
  */
-abstract class WordPress_AbstractFunctionRestrictionsSniff extends WordPress_Sniff {
+abstract class AbstractFunctionRestrictionsSniff extends Sniff {
 
 	/**
 	 * Exclude groups.

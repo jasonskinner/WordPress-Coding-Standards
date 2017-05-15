@@ -7,20 +7,24 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\Variables;
+
+use WordPressCS\WordPress\Sniff;
+
 /**
- * WordPress_Sniffs_Variables_GlobalVariablesSniff.
+ * \WordPressCS\WordPress\Sniffs\Variables\GlobalVariablesSniff.
  *
  * Warns about overwriting WordPress native global variables.
  *
  * @package WPCS\WordPressCodingStandards
  *
  * @since   0.3.0
- * @since   0.4.0  This class now extends WordPress_Sniff.
- * @since   0.12.0 The $wp_globals property has been moved to the WordPress_Sniff.
+ * @since   0.4.0  This class now extends \WordPressCS\WordPress\Sniff.
+ * @since   0.12.0 The $wp_globals property has been moved to the \WordPressCS\WordPress\Sniff.
  *
- * @uses    WordPress_Sniff::$custom_test_class_whitelist
+ * @uses    \WordPressCS\WordPress\Sniff::$custom_test_class_whitelist
  */
-class WordPress_Sniffs_Variables_GlobalVariablesSniff extends WordPress_Sniff {
+class GlobalVariablesSniff extends Sniff {
 
 	/**
 	 * Returns an array of tokens this test wants to listen for.

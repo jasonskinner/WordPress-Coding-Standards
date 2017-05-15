@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\VIP;
+
+use WordPressCS\WordPress\AbstractArrayAssignmentRestrictionsSniff;
+
 /**
  * Flag potentially slow queries.
  *
@@ -16,7 +20,7 @@
  *
  * @since   0.3.0
  */
-class WordPress_Sniffs_VIP_SlowDBQuerySniff extends WordPress_AbstractArrayAssignmentRestrictionsSniff {
+class SlowDBQuerySniff extends AbstractArrayAssignmentRestrictionsSniff {
 
 	/**
 	 * Groups of variables to restrict.

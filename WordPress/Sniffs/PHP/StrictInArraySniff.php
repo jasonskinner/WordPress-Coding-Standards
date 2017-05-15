@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\PHP;
+
+use WordPressCS\WordPress\AbstractFunctionParameterSniff;
+
 /**
  * Flag calling in_array(), array_search() and array_keys() without true as the third parameter.
  *
@@ -16,11 +20,12 @@
  *
  * @since   0.9.0
  * @since   0.10.0 This sniff not only checks for `in_array()`, but also `array_search()` and `array_keys()`.
- *                 The sniff no longer needlessly extends the WordPress_Sniffs_Arrays_ArrayAssignmentRestrictionsSniff
+ *                 The sniff no longer needlessly extends the
+ *                 \WordPressCS\WordPress\Sniffs\Arrays\ArrayAssignmentRestrictionsSniff
  *                 which it didn't use.
- * @since   0.11.0 Refactored to extend the new WordPress_AbstractFunctionParameterSniff.
+ * @since   0.11.0 Refactored to extend the new \WordPressCS\WordPress\AbstractFunctionParameterSniff.
  */
-class WordPress_Sniffs_PHP_StrictInArraySniff extends WordPress_AbstractFunctionParameterSniff {
+class StrictInArraySniff extends AbstractFunctionParameterSniff {
 
 	/**
 	 * The group name for this group of functions.

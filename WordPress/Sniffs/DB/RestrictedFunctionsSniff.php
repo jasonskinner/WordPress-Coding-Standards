@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\DB;
+
+use WordPressCS\WordPress\AbstractFunctionRestrictionsSniff;
+
 /**
  * Verifies that no database related PHP functions are used.
  *
@@ -21,7 +25,7 @@
  *
  * @since   0.10.0
  */
-class WordPress_Sniffs_DB_RestrictedFunctionsSniff extends WordPress_AbstractFunctionRestrictionsSniff {
+class RestrictedFunctionsSniff extends AbstractFunctionRestrictionsSniff {
 
 	/**
 	 * Groups of functions to restrict.

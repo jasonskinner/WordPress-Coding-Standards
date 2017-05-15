@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\VIP;
+
+use WordPressCS\WordPress\AbstractFunctionRestrictionsSniff;
+
 /**
  * Disallow Filesystem writes.
  *
@@ -15,10 +19,10 @@
  * @package WPCS\WordPressCodingStandards
  *
  * @since   0.3.0
- * @since   0.11.0 Extends the WordPress_AbstractFunctionRestrictionsSniff instead of the
- *                 Generic_Sniffs_PHP_ForbiddenFunctionsSniff.
+ * @since   0.11.0 Extends the \WordPressCS\WordPress\AbstractFunctionRestrictionsSniff instead
+ *                 of the \PHP_CodeSniffer\Standards\Generic\Sniffs\PHP\ForbiddenFunctionsSniff.
  */
-class WordPress_Sniffs_VIP_FileSystemWritesDisallowSniff extends WordPress_AbstractFunctionRestrictionsSniff {
+class FileSystemWritesDisallowSniff extends AbstractFunctionRestrictionsSniff {
 
 	/**
 	 * If true, an error will be thrown; otherwise a warning.

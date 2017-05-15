@@ -7,6 +7,10 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\Files;
+
+use WordPressCS\WordPress\Sniff;
+
 /**
  * Ensures filenames do not contain underscores.
  *
@@ -21,11 +25,11 @@
  *                   template tags end in `-template`. Based on @subpackage file DocBlock tag.
  *                 - This sniff will now allow for underscores in file names for certain theme
  *                   specific exceptions if the `$is_theme` property is set to `true`.
- * @since   0.12.0 - Now extends the `WordPress_Sniff` class.
+ * @since   0.12.0 - Now extends the `\WordPressCS\WordPress\Sniff` class.
  *
- * @uses    WordPress_Sniff::$custom_test_class_whitelist
+ * @uses    \WordPressCS\WordPress\Sniff::$custom_test_class_whitelist
  */
-class WordPress_Sniffs_Files_FileNameSniff extends WordPress_Sniff {
+class FileNameSniff extends Sniff {
 
 	/**
 	 * Regex for the theme specific exceptions.

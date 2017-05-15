@@ -49,10 +49,10 @@ class PrefixAllGlobalsUnitTest extends \AbstractSniffUnitTest {
 					90  => 1,
 					91  => 1,
 					// Backfills.
-					225 => ( function_exists( 'mb_strpos' ) ) ? 0 : 1,
-					230 => ( function_exists( 'array_column' ) ) ? 0 : 1,
-					234 => ( defined( 'E_DEPRECATED' ) ) ? 0 : 1,
-					238 => ( class_exists( 'IntlTimeZone' ) ) ? 0 : 1,
+					225 => ( function_exists( '\mb_strpos' ) ) ? 0 : 1,
+					230 => ( function_exists( '\array_column' ) ) ? 0 : 1,
+					234 => ( defined( '\E_DEPRECATED' ) ) ? 0 : 1,
+					238 => ( class_exists( '\IntlTimeZone' ) ) ? 0 : 1,
 				);
 
 			case 'PrefixAllGlobalsUnitTest.1.inc':

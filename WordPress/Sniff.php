@@ -45,7 +45,7 @@ if ( version_compare( PHPCSHelper::getVersion(), '2.99.99', '>' ) ) {
  *            In the rare few cases where the array values *do* have meaning, this
  *            is documented in the property documentation.}}
  */
-abstract class Sniff implements PHP_CodeSniffer_Sniff {
+abstract class Sniff implements \PHP_CodeSniffer_Sniff {
 
 	/**
 	 * List of the functions which verify nonces.
@@ -816,7 +816,7 @@ abstract class Sniff implements PHP_CodeSniffer_Sniff {
 	 *
 	 * @since 0.4.0
 	 *
-	 * @var PHP_CodeSniffer_File
+	 * @var \PHP_CodeSniffer_File
 	 */
 	protected $phpcsFile;
 
@@ -834,14 +834,14 @@ abstract class Sniff implements PHP_CodeSniffer_Sniff {
 	 *
 	 * @since 0.11.0
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param int                  $stackPtr  The position of the current token
-	 *                                        in the stack passed in $tokens.
+	 * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param int                   $stackPtr  The position of the current token
+	 *                                         in the stack passed in $tokens.
 	 *
 	 * @return int|void Integer stack pointer to skip forward or void to continue
 	 *                  normal file processing.
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( \PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$this->init( $phpcsFile );
 		return $this->process_token( $stackPtr );
 	}
@@ -866,9 +866,9 @@ abstract class Sniff implements PHP_CodeSniffer_Sniff {
 	 *
 	 * @since 0.4.0
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file currently being processed.
+	 * @param \PHP_CodeSniffer_File $phpcsFile The file currently being processed.
 	 */
-	protected function init( PHP_CodeSniffer_File $phpcsFile ) {
+	protected function init( \PHP_CodeSniffer_File $phpcsFile ) {
 		$this->phpcsFile = $phpcsFile;
 		$this->tokens    = $phpcsFile->getTokens();
 	}
@@ -1218,7 +1218,7 @@ abstract class Sniff implements PHP_CodeSniffer_Sniff {
 		}
 
 		$next_non_empty = $this->phpcsFile->findNext(
-			PHP_CodeSniffer_Tokens::$emptyTokens
+			\PHP_CodeSniffer_Tokens::$emptyTokens
 			, ( $stackPtr + 1 )
 			, null
 			, true
@@ -1232,7 +1232,7 @@ abstract class Sniff implements PHP_CodeSniffer_Sniff {
 		}
 
 		// If the next token is an assignment, that's all we need to know.
-		if ( isset( PHP_CodeSniffer_Tokens::$assignmentTokens[ $this->tokens[ $next_non_empty ]['code'] ] ) ) {
+		if ( isset( \PHP_CodeSniffer_Tokens::$assignmentTokens[ $this->tokens[ $next_non_empty ]['code'] ] ) ) {
 			return true;
 		}
 
@@ -1412,7 +1412,7 @@ abstract class Sniff implements PHP_CodeSniffer_Sniff {
 
 		// Get the last non-empty token.
 		$prev = $this->phpcsFile->findPrevious(
-			PHP_CodeSniffer_Tokens::$emptyTokens
+			\PHP_CodeSniffer_Tokens::$emptyTokens
 			, ( $stackPtr - 1 )
 			, null
 			, true
@@ -1499,7 +1499,7 @@ abstract class Sniff implements PHP_CodeSniffer_Sniff {
 				 * to resolve the function name, do so.
 				 */
 				$first_non_empty = $this->phpcsFile->findNext(
-					PHP_CodeSniffer_Tokens::$emptyTokens,
+					\PHP_CodeSniffer_Tokens::$emptyTokens,
 					$callback['start'],
 					( $callback['end'] + 1 ),
 					true
@@ -1556,7 +1556,7 @@ abstract class Sniff implements PHP_CodeSniffer_Sniff {
 
 		// Find the next non-empty token.
 		$open_bracket = $this->phpcsFile->findNext(
-			PHP_CodeSniffer_Tokens::$emptyTokens,
+			\PHP_CodeSniffer_Tokens::$emptyTokens,
 			( $stackPtr + 1 ),
 			null,
 			true
@@ -1722,19 +1722,19 @@ abstract class Sniff implements PHP_CodeSniffer_Sniff {
 		// Find the previous non-empty token. We check before the var first because
 		// yoda conditions are usually expected.
 		$previous_token = $this->phpcsFile->findPrevious(
-			PHP_CodeSniffer_Tokens::$emptyTokens,
+			\PHP_CodeSniffer_Tokens::$emptyTokens,
 			( $stackPtr - 1 ),
 			null,
 			true
 		);
 
-		if ( isset( PHP_CodeSniffer_Tokens::$comparisonTokens[ $this->tokens[ $previous_token ]['code'] ] ) ) {
+		if ( isset( \PHP_CodeSniffer_Tokens::$comparisonTokens[ $this->tokens[ $previous_token ]['code'] ] ) ) {
 			return true;
 		}
 
 		// Maybe the comparison operator is after this.
 		$next_token = $this->phpcsFile->findNext(
-			PHP_CodeSniffer_Tokens::$emptyTokens,
+			\PHP_CodeSniffer_Tokens::$emptyTokens,
 			( $stackPtr + 1 ),
 			null,
 			true
@@ -1744,14 +1744,14 @@ abstract class Sniff implements PHP_CodeSniffer_Sniff {
 		while ( T_OPEN_SQUARE_BRACKET === $this->tokens[ $next_token ]['code'] ) {
 
 			$next_token = $this->phpcsFile->findNext(
-				PHP_CodeSniffer_Tokens::$emptyTokens,
+				\PHP_CodeSniffer_Tokens::$emptyTokens,
 				( $this->tokens[ $next_token ]['bracket_closer'] + 1 ),
 				null,
 				true
 			);
 		}
 
-		if ( isset( PHP_CodeSniffer_Tokens::$comparisonTokens[ $this->tokens[ $next_token ]['code'] ] ) ) {
+		if ( isset( \PHP_CodeSniffer_Tokens::$comparisonTokens[ $this->tokens[ $next_token ]['code'] ] ) ) {
 			return true;
 		}
 
@@ -1847,7 +1847,7 @@ abstract class Sniff implements PHP_CodeSniffer_Sniff {
 			return false;
 		}
 
-		$next_non_empty = $this->phpcsFile->findNext( PHP_CodeSniffer_Tokens::$emptyTokens, ( $stackPtr + 1 ), null, true, null, true );
+		$next_non_empty = $this->phpcsFile->findNext( \PHP_CodeSniffer_Tokens::$emptyTokens, ( $stackPtr + 1 ), null, true, null, true );
 
 		// Deal with short array syntax.
 		if ( 'T_OPEN_SHORT_ARRAY' === $this->tokens[ $stackPtr ]['type'] ) {
@@ -1874,7 +1874,7 @@ abstract class Sniff implements PHP_CodeSniffer_Sniff {
 		}
 
 		$close_parenthesis   = $this->tokens[ $next_non_empty ]['parenthesis_closer'];
-		$next_next_non_empty = $this->phpcsFile->findNext( PHP_CodeSniffer_Tokens::$emptyTokens, ( $next_non_empty + 1 ), ( $close_parenthesis + 1 ), true );
+		$next_next_non_empty = $this->phpcsFile->findNext( \PHP_CodeSniffer_Tokens::$emptyTokens, ( $next_non_empty + 1 ), ( $close_parenthesis + 1 ), true );
 
 		if ( $next_next_non_empty === $close_parenthesis ) {
 			// No parameters.
@@ -1950,7 +1950,7 @@ abstract class Sniff implements PHP_CodeSniffer_Sniff {
 
 			$nestedParenthesisCount = 0;
 		} else {
-			$opener = $this->phpcsFile->findNext( PHP_CodeSniffer_Tokens::$emptyTokens, ( $stackPtr + 1 ), null, true, null, true );
+			$opener = $this->phpcsFile->findNext( \PHP_CodeSniffer_Tokens::$emptyTokens, ( $stackPtr + 1 ), null, true, null, true );
 			$closer = $this->tokens[ $opener ]['parenthesis_closer'];
 
 			$nestedParenthesisCount = 1;
@@ -2000,7 +2000,7 @@ abstract class Sniff implements PHP_CodeSniffer_Sniff {
 			 * Prevents code like the following from setting a third parameter:
 			 * functionCall( $param1, $param2, );
 			 */
-			$has_next_param = $this->phpcsFile->findNext( PHP_CodeSniffer_Tokens::$emptyTokens, ( $next_comma + 1 ), $closer, true, null, true );
+			$has_next_param = $this->phpcsFile->findNext( \PHP_CodeSniffer_Tokens::$emptyTokens, ( $next_comma + 1 ), $closer, true, null, true );
 			if ( false === $has_next_param ) {
 				break;
 			}
@@ -2133,7 +2133,7 @@ abstract class Sniff implements PHP_CodeSniffer_Sniff {
 			return false;
 		}
 
-		$nextToken = $this->phpcsFile->findNext( PHP_CodeSniffer_Tokens::$emptyTokens, ( $stackPtr + 1 ), null, true, null, true );
+		$nextToken = $this->phpcsFile->findNext( \PHP_CodeSniffer_Tokens::$emptyTokens, ( $stackPtr + 1 ), null, true, null, true );
 		if ( T_OPEN_CURLY_BRACKET === $this->tokens[ $nextToken ]['code'] ) {
 			// Declaration for global namespace when using multiple namespaces in a file.
 			// I.e.: `namespace {}`.

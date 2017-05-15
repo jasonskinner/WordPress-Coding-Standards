@@ -178,7 +178,7 @@ class I18nSniff extends Sniff {
 		for ( $i = ( $func_open_paren_token + 1 ); $i < $this->tokens[ $func_open_paren_token ]['parenthesis_closer']; $i++ ) {
 			$this_token                = $this->tokens[ $i ];
 			$this_token['token_index'] = $i;
-			if ( isset( PHP_CodeSniffer_Tokens::$emptyTokens[ $this_token['code'] ] ) ) {
+			if ( isset( \PHP_CodeSniffer_Tokens::$emptyTokens[ $this_token['code'] ] ) ) {
 				continue;
 			}
 			if ( T_COMMA === $this_token['code'] ) {
@@ -188,7 +188,7 @@ class I18nSniff extends Sniff {
 			}
 
 			// Merge consecutive single or double quoted strings (when they span multiple lines).
-			if ( isset( PHP_CodeSniffer_Tokens::$textStringTokens[ $this_token['code'] ] ) ) {
+			if ( isset( \PHP_CodeSniffer_Tokens::$textStringTokens[ $this_token['code'] ] ) ) {
 				for ( $j = ( $i + 1 ); $j < $this->tokens[ $func_open_paren_token ]['parenthesis_closer']; $j++ ) {
 					if ( $this_token['code'] === $this->tokens[ $j ]['code'] ) {
 						$this_token['content'] .= $this->tokens[ $j ]['content'];
@@ -528,7 +528,7 @@ class I18nSniff extends Sniff {
 					continue;
 				}
 
-				$previous_comment = $this->phpcsFile->findPrevious( PHP_CodeSniffer_Tokens::$commentTokens, ( $stack_ptr - 1 ) );
+				$previous_comment = $this->phpcsFile->findPrevious( \PHP_CodeSniffer_Tokens::$commentTokens, ( $stack_ptr - 1 ) );
 
 				if ( false !== $previous_comment ) {
 					/*

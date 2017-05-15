@@ -33,7 +33,7 @@ if ( version_compare( PHPCSHelper::getVersion(), '2.99.99', '>' ) ) {
  * Last synced with base class December 2008 at commit f01746fd1c89e98174b16c76efd325825eb58bf1.
  * @link    https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Squiz/Sniffs/WhiteSpace/OperatorSpacingSniff.php
  */
-class OperatorSpacingSniff implements PHP_CodeSniffer_Sniff {
+class OperatorSpacingSniff implements \PHP_CodeSniffer_Sniff {
 
 	/**
 	 * A list of tokenizers this sniff supports.
@@ -51,9 +51,9 @@ class OperatorSpacingSniff implements PHP_CodeSniffer_Sniff {
 	 * @return array
 	 */
 	public function register() {
-		$comparison = PHP_CodeSniffer_Tokens::$comparisonTokens;
-		$operators  = PHP_CodeSniffer_Tokens::$operators;
-		$assignment = PHP_CodeSniffer_Tokens::$assignmentTokens;
+		$comparison = \PHP_CodeSniffer_Tokens::$comparisonTokens;
+		$operators  = \PHP_CodeSniffer_Tokens::$operators;
+		$assignment = \PHP_CodeSniffer_Tokens::$assignmentTokens;
 
 		// Union the arrays - keeps the array keys and - in this case - automatically de-dups.
 		$tokens   = ( $comparison + $operators + $assignment );
@@ -66,13 +66,13 @@ class OperatorSpacingSniff implements PHP_CodeSniffer_Sniff {
 	/**
 	 * Processes this sniff, when one of its tokens is encountered.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The current file being checked.
-	 * @param int                  $stackPtr  The position of the current token in the
-	 *                                        stack passed in $tokens.
+	 * @param \PHP_CodeSniffer_File $phpcsFile The current file being checked.
+	 * @param int                   $stackPtr  The position of the current token in the
+	 *                                         stack passed in $tokens.
 	 *
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( \PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
 		if ( T_EQUAL === $tokens[ $stackPtr ]['code'] ) {
@@ -117,12 +117,12 @@ class OperatorSpacingSniff implements PHP_CodeSniffer_Sniff {
 					return;
 				}
 
-				if ( isset( PHP_CodeSniffer_Tokens::$operators[ $tokens[ $prev ]['code'] ] ) ) {
+				if ( isset( \PHP_CodeSniffer_Tokens::$operators[ $tokens[ $prev ]['code'] ] ) ) {
 					// Just trying to operate on a negative value; eg. ($var * -1).
 					return;
 				}
 
-				if ( isset( PHP_CodeSniffer_Tokens::$comparisonTokens[ $tokens[ $prev ]['code'] ] ) ) {
+				if ( isset( \PHP_CodeSniffer_Tokens::$comparisonTokens[ $tokens[ $prev ]['code'] ] ) ) {
 					// Just trying to compare a negative value; eg. ($var === -1).
 					return;
 				}
@@ -144,7 +144,7 @@ class OperatorSpacingSniff implements PHP_CodeSniffer_Sniff {
 				if ( T_LNUMBER === $tokens[ $number ]['code'] ) {
 					$semi = $phpcsFile->findNext( T_WHITESPACE, ( $number + 1 ), null, true );
 					if ( T_SEMICOLON === $tokens[ $semi ]['code'] ) {
-						if ( false !== $prev && isset( PHP_CodeSniffer_Tokens::$assignmentTokens[ $tokens[ $prev ]['code'] ] ) ) {
+						if ( false !== $prev && isset( \PHP_CodeSniffer_Tokens::$assignmentTokens[ $tokens[ $prev ]['code'] ] ) ) {
 							// This is a negative assignment.
 							return;
 						}
@@ -166,7 +166,7 @@ class OperatorSpacingSniff implements PHP_CodeSniffer_Sniff {
 			} elseif ( 1 !== strlen( $tokens[ ( $stackPtr - 1 ) ]['content'] ) && 1 !== $tokens[ ( $stackPtr - 1 ) ]['column'] ) {
 				// Don't throw an error for assignments, because other standards allow
 				// multiple spaces there to align multiple assignments.
-				if ( false === isset( PHP_CodeSniffer_Tokens::$assignmentTokens[ $tokens[ $stackPtr ]['code'] ] ) ) {
+				if ( false === isset( \PHP_CodeSniffer_Tokens::$assignmentTokens[ $tokens[ $stackPtr ]['code'] ] ) ) {
 					$found = strlen( $tokens[ ( $stackPtr - 1 ) ]['content'] );
 					$error = 'Expected 1 space before "%s"; %s found';
 					$data  = array(

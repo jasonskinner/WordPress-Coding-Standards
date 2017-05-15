@@ -27,7 +27,7 @@ if ( version_compare( PHPCSHelper::getVersion(), '2.99.99', '>' ) ) {
  *
  * @since   0.3.0
  */
-class EnqueuedResourcesSniff implements PHP_CodeSniffer_Sniff {
+class EnqueuedResourcesSniff implements \PHP_CodeSniffer_Sniff {
 
 	/**
 	 * Returns an array of tokens this test wants to listen for.
@@ -35,19 +35,19 @@ class EnqueuedResourcesSniff implements PHP_CodeSniffer_Sniff {
 	 * @return array
 	 */
 	public function register() {
-		return PHP_CodeSniffer_Tokens::$textStringTokens;
+		return \PHP_CodeSniffer_Tokens::$textStringTokens;
 	}
 
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param int                  $stackPtr  The position of the current token
-	 *                                        in the stack passed in $tokens.
+	 * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param int                   $stackPtr  The position of the current token
+	 *                                         in the stack passed in $tokens.
 	 *
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( \PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 		$token  = $tokens[ $stackPtr ];
 

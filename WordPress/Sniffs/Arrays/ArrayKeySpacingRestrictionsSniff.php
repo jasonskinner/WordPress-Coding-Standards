@@ -28,7 +28,7 @@ if ( version_compare( PHPCSHelper::getVersion(), '2.99.99', '>' ) ) {
  * @since   0.3.0
  * @since   0.7.0 This sniff now has the ability to fix a number of the issues it flags.
  */
-class ArrayKeySpacingRestrictionsSniff implements PHP_CodeSniffer_Sniff {
+class ArrayKeySpacingRestrictionsSniff implements \PHP_CodeSniffer_Sniff {
 
 	/**
 	 * Returns an array of tokens this test wants to listen for.
@@ -45,13 +45,13 @@ class ArrayKeySpacingRestrictionsSniff implements PHP_CodeSniffer_Sniff {
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param int                  $stackPtr  The position of the current token
-	 *                                        in the stack passed in $tokens.
+	 * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param int                   $stackPtr  The position of the current token
+	 *                                         in the stack passed in $tokens.
 	 *
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( \PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
 		$token = $tokens[ $stackPtr ];

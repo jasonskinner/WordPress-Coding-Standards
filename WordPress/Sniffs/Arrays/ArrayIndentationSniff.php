@@ -142,7 +142,7 @@ class ArrayIndentationSniff extends Sniff {
 
 		foreach ( $array_items as $item ) {
 			// Find the line on which the item starts.
-			$first_content = $this->phpcsFile->findNext( PHP_CodeSniffer_Tokens::$emptyTokens, $item['start'], ( $item['end'] + 1 ), true );
+			$first_content = $this->phpcsFile->findNext( \PHP_CodeSniffer_Tokens::$emptyTokens, $item['start'], ( $item['end'] + 1 ), true );
 			if ( false === $first_content ) {
 				$end_of_last_item = ( $item['end'] + 1 );
 				continue;

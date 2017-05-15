@@ -33,7 +33,7 @@ if ( version_compare( PHPCSHelper::getVersion(), '2.99.99', '>' ) ) {
  * {@internal While this class extends the PEAR parent, it does not actually use the checks
  * contained in the parent. It only uses the properties and the token registration from the parent.}}
  */
-class ValidFunctionNameSniff extends PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff {
+class ValidFunctionNameSniff extends \PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff {
 
 	/**
 	 * Additional double underscore prefixed methods specific to certain PHP native extensions.
@@ -61,13 +61,13 @@ class ValidFunctionNameSniff extends PEAR_Sniffs_NamingConventions_ValidFunction
 	/**
 	 * Processes the tokens outside the scope.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being processed.
-	 * @param int                  $stackPtr  The position where this token was
-	 *                                        found.
+	 * @param \PHP_CodeSniffer_File $phpcsFile The file being processed.
+	 * @param int                   $stackPtr  The position where this token was
+	 *                                         found.
 	 *
 	 * @return void
 	 */
-	protected function processTokenOutsideScope( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	protected function processTokenOutsideScope( \PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$functionName = $phpcsFile->getDeclarationName( $stackPtr );
 
 		if ( ! isset( $functionName ) ) {
@@ -107,14 +107,14 @@ class ValidFunctionNameSniff extends PEAR_Sniffs_NamingConventions_ValidFunction
 	/**
 	 * Processes the tokens within the scope.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being processed.
-	 * @param int                  $stackPtr  The position where this token was
-	 *                                        found.
-	 * @param int                  $currScope The position of the current scope.
+	 * @param \PHP_CodeSniffer_File $phpcsFile The file being processed.
+	 * @param int                   $stackPtr  The position where this token was
+	 *                                         found.
+	 * @param int                   $currScope The position of the current scope.
 	 *
 	 * @return void
 	 */
-	protected function processTokenWithinScope( PHP_CodeSniffer_File $phpcsFile, $stackPtr, $currScope ) {
+	protected function processTokenWithinScope( \PHP_CodeSniffer_File $phpcsFile, $stackPtr, $currScope ) {
 		$methodName = $phpcsFile->getDeclarationName( $stackPtr );
 
 		if ( ! isset( $methodName ) ) {

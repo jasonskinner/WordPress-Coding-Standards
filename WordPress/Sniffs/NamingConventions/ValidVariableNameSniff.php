@@ -31,7 +31,7 @@ if ( version_compare( PHPCSHelper::getVersion(), '2.99.99', '>' ) ) {
  * Last synced with base class July 2014 at commit ed257ca0e56ad86cd2a4d6fa38ce0b95141c824f.
  * @link    https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Squiz/Sniffs/NamingConventions/ValidVariableNameSniff.php
  */
-class ValidVariableNameSniff extends PHP_CodeSniffer_Standards_AbstractVariableSniff {
+class ValidVariableNameSniff extends \PHP_CodeSniffer_Standards_AbstractVariableSniff {
 
 	/**
 	 * PHP Reserved Vars.
@@ -128,13 +128,13 @@ class ValidVariableNameSniff extends PHP_CodeSniffer_Standards_AbstractVariableS
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcs_file The file being scanned.
-	 * @param int                  $stack_ptr  The position of the current token in the
-	 *                                        stack passed in $tokens.
+	 * @param \PHP_CodeSniffer_File $phpcs_file The file being scanned.
+	 * @param int                   $stack_ptr  The position of the current token in the
+	 *                                         stack passed in $tokens.
 	 *
 	 * @return void
 	 */
-	protected function processVariable( PHP_CodeSniffer_File $phpcs_file, $stack_ptr ) {
+	protected function processVariable( \PHP_CodeSniffer_File $phpcs_file, $stack_ptr ) {
 
 		$tokens   = $phpcs_file->getTokens();
 		$var_name = ltrim( $tokens[ $stack_ptr ]['content'], '$' );
@@ -214,13 +214,13 @@ class ValidVariableNameSniff extends PHP_CodeSniffer_Standards_AbstractVariableS
 	/**
 	 * Processes class member variables.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcs_file The file being scanned.
-	 * @param int                  $stack_ptr  The position of the current token in the
-	 *                                        stack passed in $tokens.
+	 * @param \PHP_CodeSniffer_File $phpcs_file The file being scanned.
+	 * @param int                   $stack_ptr  The position of the current token in the
+	 *                                         stack passed in $tokens.
 	 *
 	 * @return void
 	 */
-	protected function processMemberVar( PHP_CodeSniffer_File $phpcs_file, $stack_ptr ) {
+	protected function processMemberVar( \PHP_CodeSniffer_File $phpcs_file, $stack_ptr ) {
 
 		$tokens = $phpcs_file->getTokens();
 
@@ -248,13 +248,13 @@ class ValidVariableNameSniff extends PHP_CodeSniffer_Standards_AbstractVariableS
 	/**
 	 * Processes the variable found within a double quoted string.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcs_file The file being scanned.
-	 * @param int                  $stack_ptr  The position of the double quoted
-	 *                                         string.
+	 * @param \PHP_CodeSniffer_File $phpcs_file The file being scanned.
+	 * @param int                   $stack_ptr  The position of the double quoted
+	 *                                          string.
 	 *
 	 * @return void
 	 */
-	protected function processVariableInString( PHP_CodeSniffer_File $phpcs_file, $stack_ptr ) {
+	protected function processVariableInString( \PHP_CodeSniffer_File $phpcs_file, $stack_ptr ) {
 
 		$tokens = $phpcs_file->getTokens();
 
@@ -300,7 +300,7 @@ class ValidVariableNameSniff extends PHP_CodeSniffer_Standards_AbstractVariableS
 	 *
 	 * @since 0.10.0
 	 *
-	 * @param PHP_CodeSniffer_File $phpcs_file The file being scanned.
+	 * @param \PHP_CodeSniffer_File $phpcs_file The file being scanned.
 	 *
 	 * @return void
 	 */

@@ -49,11 +49,11 @@ class DiscouragedFunctionsSniff {
 	 *
 	 * @deprecated 0.11.0
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile A PHP_CodeSniffer file.
-	 * @param int                  $stackPtr  The position of the token.
+	 * @param \PHP_CodeSniffer_File $phpcsFile A PHP_CodeSniffer file.
+	 * @param int                   $stackPtr  The position of the token.
 	 *
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {}
+	public function process( \PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {}
 
 }

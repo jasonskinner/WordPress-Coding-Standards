@@ -170,7 +170,7 @@ class ControlStructureSpacingSniff extends Sniff {
 			}
 		} // End if().
 
-		$parenthesisOpener = $this->phpcsFile->findNext( PHP_CodeSniffer_Tokens::$emptyTokens, ( $stackPtr + 1 ), null, true );
+		$parenthesisOpener = $this->phpcsFile->findNext( \PHP_CodeSniffer_Tokens::$emptyTokens, ( $stackPtr + 1 ), null, true );
 
 		// If this is a function declaration.
 		if ( T_FUNCTION === $this->tokens[ $stackPtr ]['code'] ) {
@@ -183,7 +183,7 @@ class ControlStructureSpacingSniff extends Sniff {
 
 				// This function returns by reference (function &function_name() {}).
 				$parenthesisOpener = $this->phpcsFile->findNext(
-					PHP_CodeSniffer_Tokens::$emptyTokens,
+					\PHP_CodeSniffer_Tokens::$emptyTokens,
 					( $parenthesisOpener + 1 ),
 					null,
 					true
@@ -193,7 +193,7 @@ class ControlStructureSpacingSniff extends Sniff {
 
 			if ( isset( $function_name_ptr ) ) {
 				$parenthesisOpener = $this->phpcsFile->findNext(
-					PHP_CodeSniffer_Tokens::$emptyTokens,
+					\PHP_CodeSniffer_Tokens::$emptyTokens,
 					( $parenthesisOpener + 1 ),
 					null,
 					true
@@ -223,7 +223,7 @@ class ControlStructureSpacingSniff extends Sniff {
 			if ( isset( $this->tokens[ $parenthesisOpener ]['parenthesis_closer'] ) ) {
 
 				$usePtr = $this->phpcsFile->findNext(
-					PHP_CodeSniffer_Tokens::$emptyTokens,
+					\PHP_CodeSniffer_Tokens::$emptyTokens,
 					( $this->tokens[ $parenthesisOpener ]['parenthesis_closer'] + 1 ),
 					null,
 					true,
@@ -349,7 +349,7 @@ class ControlStructureSpacingSniff extends Sniff {
 						$this->phpcsFile->fixer->endChangeset();
 					}
 				} elseif ( ' ' !== $this->tokens[ ( $parenthesisCloser - 1 ) ]['content'] ) {
-					$prevNonEmpty = $this->phpcsFile->findPrevious( PHP_CodeSniffer_Tokens::$emptyTokens, ( $parenthesisCloser - 1 ), null, true );
+					$prevNonEmpty = $this->phpcsFile->findPrevious( \PHP_CodeSniffer_Tokens::$emptyTokens, ( $parenthesisCloser - 1 ), null, true );
 					if ( $this->tokens[ ( $parenthesisCloser ) ]['line'] === $this->tokens[ ( $prevNonEmpty + 1 ) ]['line'] ) {
 						$error = 'Expected exactly one space before closing parenthesis; "%s" found.';
 						$fix   = $this->phpcsFile->addFixableError(
@@ -460,7 +460,7 @@ class ControlStructureSpacingSniff extends Sniff {
 			if ( $firstContent !== $scopeCloser ) {
 				$lastContent = $this->phpcsFile->findPrevious( T_WHITESPACE, ( $scopeCloser - 1 ), null, true );
 
-				$lastNonEmptyContent = $this->phpcsFile->findPrevious( PHP_CodeSniffer_Tokens::$emptyTokens, ( $scopeCloser - 1 ), null, true );
+				$lastNonEmptyContent = $this->phpcsFile->findPrevious( \PHP_CodeSniffer_Tokens::$emptyTokens, ( $scopeCloser - 1 ), null, true );
 
 				$checkToken = $lastContent;
 				if ( isset( $this->tokens[ $lastNonEmptyContent ]['scope_condition'] ) ) {
@@ -500,7 +500,7 @@ class ControlStructureSpacingSniff extends Sniff {
 			return;
 		}
 
-		$trailingContent = $this->phpcsFile->findNext( PHP_CodeSniffer_Tokens::$emptyTokens, ( $scopeCloser + 1 ), null, true );
+		$trailingContent = $this->phpcsFile->findNext( \PHP_CodeSniffer_Tokens::$emptyTokens, ( $scopeCloser + 1 ), null, true );
 		if ( false === $trailingContent ) {
 			return;
 		}

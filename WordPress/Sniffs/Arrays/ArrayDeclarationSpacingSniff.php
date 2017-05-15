@@ -38,7 +38,7 @@ if ( version_compare( PHPCSHelper::getVersion(), '2.99.99', '>' ) ) {
  * Last synced with parent class October 5 2016 at commit ea32814346ecf29791de701b3fa464a9ca43f45b.
  * @link    https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Squiz/Sniffs/Arrays/ArrayDeclarationSniff.php
  */
-class ArrayDeclarationSpacingSniff extends Squiz_Sniffs_Arrays_ArrayDeclarationSniff {
+class ArrayDeclarationSpacingSniff extends \Squiz_Sniffs_Arrays_ArrayDeclarationSniff {
 
 	/**
 	 * Process a single line array.
@@ -46,13 +46,13 @@ class ArrayDeclarationSpacingSniff extends Squiz_Sniffs_Arrays_ArrayDeclarationS
 	 * @since 0.5.0
 	 * @since 0.11.0 Moved from \WordPressCS\WordPress\Sniffs\Arrays\ArrayDeclaration to this sniff.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile  The file being scanned.
-	 * @param int                  $stackPtr   The position of the current token
-	 *                                         in the stack passed in $tokens.
-	 * @param int                  $arrayStart Position of the array opener in the token stack.
-	 * @param int                  $arrayEnd   Position of the array closer in the token stack.
+	 * @param \PHP_CodeSniffer_File $phpcsFile  The file being scanned.
+	 * @param int                   $stackPtr   The position of the current token
+	 *                                          in the stack passed in $tokens.
+	 * @param int                   $arrayStart Position of the array opener in the token stack.
+	 * @param int                   $arrayEnd   Position of the array closer in the token stack.
 	 */
-	public function processSingleLineArray( PHP_CodeSniffer_File $phpcsFile, $stackPtr, $arrayStart, $arrayEnd ) {
+	public function processSingleLineArray( \PHP_CodeSniffer_File $phpcsFile, $stackPtr, $arrayStart, $arrayEnd ) {
 
 		// This array is empty, so the below checks aren't necessary.
 		if ( ( $arrayStart + 1 ) === $arrayEnd ) {
@@ -139,13 +139,13 @@ class ArrayDeclarationSpacingSniff extends Squiz_Sniffs_Arrays_ArrayDeclarationS
 	 * {@internal Multi-line arrays are handled by the upstream sniff via the
 	 * WordPress.Arrays.ArrayDeclaration sniff.}}
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile  The file being scanned.
-	 * @param int                  $stackPtr   The position of the current token
-	 *                                         in the stack passed in $tokens.
-	 * @param int                  $arrayStart Position of the array opener in the token stack.
-	 * @param int                  $arrayEnd   Position of the array closer in the token stack.
+	 * @param \PHP_CodeSniffer_File $phpcsFile  The file being scanned.
+	 * @param int                   $stackPtr   The position of the current token
+	 *                                          in the stack passed in $tokens.
+	 * @param int                   $arrayStart Position of the array opener in the token stack.
+	 * @param int                   $arrayEnd   Position of the array closer in the token stack.
 	 */
-	public function processMultiLineArray( PHP_CodeSniffer_File $phpcsFile, $stackPtr, $arrayStart, $arrayEnd ) {
+	public function processMultiLineArray( \PHP_CodeSniffer_File $phpcsFile, $stackPtr, $arrayStart, $arrayEnd ) {
 		return;
 	} // End processMultiLineArray().
 
@@ -154,12 +154,12 @@ class ArrayDeclarationSpacingSniff extends Squiz_Sniffs_Arrays_ArrayDeclarationS
 	 *
 	 * @since 0.11.0
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile  The file being scanned.
-	 * @param int                  $arrayStart Position of the array opener in the token stack.
-	 * @param int                  $arrayEnd   Position of the array closer in the token stack.
+	 * @param \PHP_CodeSniffer_File $phpcsFile  The file being scanned.
+	 * @param int                   $arrayStart Position of the array opener in the token stack.
+	 * @param int                   $arrayEnd   Position of the array closer in the token stack.
 	 * @return void
 	 */
-	protected function fix_associative_array( PHP_CodeSniffer_File $phpcsFile, $arrayStart, $arrayEnd ) {
+	protected function fix_associative_array( \PHP_CodeSniffer_File $phpcsFile, $arrayStart, $arrayEnd ) {
 
 		$tokens = $phpcsFile->getTokens();
 
@@ -236,7 +236,7 @@ class ArrayDeclarationSpacingSniff extends Squiz_Sniffs_Arrays_ArrayDeclarationS
 			}
 		}
 
-		$token_before_end = $phpcsFile->findPrevious( PHP_CodeSniffer_Tokens::$emptyTokens, ( $arrayEnd - 1 ), $arrayStart, true, null, true );
+		$token_before_end = $phpcsFile->findPrevious( \PHP_CodeSniffer_Tokens::$emptyTokens, ( $arrayEnd - 1 ), $arrayStart, true, null, true );
 		if ( 'T_COMMA' !== $tokens[ $token_before_end ]['type'] ) {
 			$phpcsFile->fixer->addContent( $token_before_end, ',' );
 

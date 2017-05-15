@@ -77,7 +77,7 @@ class CronIntervalSniff extends Sniff {
 		}
 
 		// Detect callback function name.
-		$callbackArrayPtr = $this->phpcsFile->findNext( PHP_CodeSniffer_Tokens::$emptyTokens, $callback['start'], ( $callback['end'] + 1 ), true );
+		$callbackArrayPtr = $this->phpcsFile->findNext( \PHP_CodeSniffer_Tokens::$emptyTokens, $callback['start'], ( $callback['end'] + 1 ), true );
 
 		// If callback is array, get second element.
 		if ( false !== $callbackArrayPtr

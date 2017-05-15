@@ -29,7 +29,7 @@ if ( version_compare( PHPCSHelper::getVersion(), '2.99.99', '>' ) ) {
  * @since   0.11.0 This sniff now has the ability to fix the issues it flags.
  * @since   0.11.0 The error level for all errors thrown by this sniff has been raised from warning to error.
  */
-class CastStructureSpacingSniff implements PHP_CodeSniffer_Sniff {
+class CastStructureSpacingSniff implements \PHP_CodeSniffer_Sniff {
 
 	/**
 	 * Returns an array of tokens this test wants to listen for.
@@ -37,19 +37,19 @@ class CastStructureSpacingSniff implements PHP_CodeSniffer_Sniff {
 	 * @return array
 	 */
 	public function register() {
-		return PHP_CodeSniffer_Tokens::$castTokens;
+		return \PHP_CodeSniffer_Tokens::$castTokens;
 	}
 
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param int                  $stackPtr  The position of the current token in the
-	 *                                        stack passed in $tokens.
+	 * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param int                   $stackPtr  The position of the current token in the
+	 *                                         stack passed in $tokens.
 	 *
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( \PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
 		if ( T_WHITESPACE !== $tokens[ ( $stackPtr - 1 ) ]['code'] ) {

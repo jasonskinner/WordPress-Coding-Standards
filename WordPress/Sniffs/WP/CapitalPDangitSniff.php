@@ -190,9 +190,9 @@ class CapitalPDangitSniff extends Sniff {
 
 		// Ignore any text strings which are array keys `$var['key']` as this is a false positive in 80% of all cases.
 		if ( T_CONSTANT_ENCAPSED_STRING === $this->tokens[ $stackPtr ]['code'] ) {
-			$prevToken = $this->phpcsFile->findPrevious( PHP_CodeSniffer_Tokens::$emptyTokens, ( $stackPtr - 1 ), null, true, null, true );
+			$prevToken = $this->phpcsFile->findPrevious( \PHP_CodeSniffer_Tokens::$emptyTokens, ( $stackPtr - 1 ), null, true, null, true );
 			if ( false !== $prevToken && T_OPEN_SQUARE_BRACKET === $this->tokens[ $prevToken ]['code'] ) {
-				$nextToken = $this->phpcsFile->findNext( PHP_CodeSniffer_Tokens::$emptyTokens, ( $stackPtr + 1 ), null, true, null, true );
+				$nextToken = $this->phpcsFile->findNext( \PHP_CodeSniffer_Tokens::$emptyTokens, ( $stackPtr + 1 ), null, true, null, true );
 				if ( false !== $nextToken && T_CLOSE_SQUARE_BRACKET === $this->tokens[ $nextToken ]['code'] ) {
 					return;
 				}

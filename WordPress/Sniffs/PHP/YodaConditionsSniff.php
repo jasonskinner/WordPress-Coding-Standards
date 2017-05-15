@@ -27,7 +27,7 @@ if ( version_compare( PHPCSHelper::getVersion(), '2.99.99', '>' ) ) {
  *
  * @since   0.3.0
  */
-class YodaConditionsSniff implements PHP_CodeSniffer_Sniff {
+class YodaConditionsSniff implements \PHP_CodeSniffer_Sniff {
 
 	/**
 	 * Returns an array of tokens this test wants to listen for.
@@ -47,16 +47,16 @@ class YodaConditionsSniff implements PHP_CodeSniffer_Sniff {
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-	 * @param int                  $stackPtr  The position of the current token in the
-	 *                                        stack passed in $tokens.
+	 * @param \PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param int                   $stackPtr  The position of the current token in the
+	 *                                         stack passed in $tokens.
 	 *
 	 * @return void
 	 */
-	public function process( PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
+	public function process( \PHP_CodeSniffer_File $phpcsFile, $stackPtr ) {
 		$tokens = $phpcsFile->getTokens();
 
-		$beginners   = PHP_CodeSniffer_Tokens::$booleanOperators;
+		$beginners   = \PHP_CodeSniffer_Tokens::$booleanOperators;
 		$beginners[] = T_IF;
 		$beginners[] = T_ELSEIF;
 
@@ -68,7 +68,7 @@ class YodaConditionsSniff implements PHP_CodeSniffer_Sniff {
 		for ( $i = $stackPtr; $i > $beginning; $i-- ) {
 
 			// Ignore whitespace.
-			if ( isset( PHP_CodeSniffer_Tokens::$emptyTokens[ $tokens[ $i ]['code'] ] ) ) {
+			if ( isset( \PHP_CodeSniffer_Tokens::$emptyTokens[ $tokens[ $i ]['code'] ] ) ) {
 				continue;
 			}
 
@@ -89,15 +89,15 @@ class YodaConditionsSniff implements PHP_CodeSniffer_Sniff {
 		}
 
 		// Check if this is a var to var comparison, e.g.: if ( $var1 == $var2 ).
-		$next_non_empty = $phpcsFile->findNext( PHP_CodeSniffer_Tokens::$emptyTokens, ( $stackPtr + 1 ), null, true );
+		$next_non_empty = $phpcsFile->findNext( \PHP_CodeSniffer_Tokens::$emptyTokens, ( $stackPtr + 1 ), null, true );
 
-		if ( isset( PHP_CodeSniffer_Tokens::$castTokens[ $tokens[ $next_non_empty ]['code'] ] ) ) {
-			$next_non_empty = $phpcsFile->findNext( PHP_CodeSniffer_Tokens::$emptyTokens, ( $next_non_empty + 1 ), null, true );
+		if ( isset( \PHP_CodeSniffer_Tokens::$castTokens[ $tokens[ $next_non_empty ]['code'] ] ) ) {
+			$next_non_empty = $phpcsFile->findNext( \PHP_CodeSniffer_Tokens::$emptyTokens, ( $next_non_empty + 1 ), null, true );
 		}
 
 		if ( in_array( $tokens[ $next_non_empty ]['code'], array( T_SELF, T_PARENT, T_STATIC ), true ) ) {
 			$next_non_empty = $phpcsFile->findNext(
-				array_merge( PHP_CodeSniffer_Tokens::$emptyTokens, array( T_DOUBLE_COLON ) )
+				array_merge( \PHP_CodeSniffer_Tokens::$emptyTokens, array( T_DOUBLE_COLON ) )
 				, ( $next_non_empty + 1 )
 				, null
 				, true

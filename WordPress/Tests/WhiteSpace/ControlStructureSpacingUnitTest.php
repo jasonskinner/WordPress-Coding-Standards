@@ -18,17 +18,6 @@ namespace WordPressCS\WordPress\Tests\WhiteSpace;
 class ControlStructureSpacingUnitTest extends \AbstractSniffUnitTest {
 
 	/**
-	 * Skip this test on PHP 5.2.
-	 *
-	 * @since 0.9.0
-	 *
-	 * @return bool Whether to skip this test.
-	 */
-	protected function shouldSkipTest() {
-		return ( PHP_VERSION_ID < 50300 );
-	}
-
-	/**
 	 * Returns the lines where errors should occur.
 	 *
 	 * @return array <int line number> => <int number of errors>

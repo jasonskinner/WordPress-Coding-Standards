@@ -7,6 +7,8 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\WhiteSpace;
+
 /**
  * Verify operator spacing, based upon Squiz code.
  *
@@ -22,7 +24,7 @@
  * Last synced with base class December 2008 at commit f01746fd1c89e98174b16c76efd325825eb58bf1.
  * @link    https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Squiz/Sniffs/WhiteSpace/OperatorSpacingSniff.php
  */
-class WordPress_Sniffs_WhiteSpace_OperatorSpacingSniff implements PHP_CodeSniffer_Sniff {
+class OperatorSpacingSniff implements PHP_CodeSniffer_Sniff {
 
 	/**
 	 * A list of tokenizers this sniff supports.

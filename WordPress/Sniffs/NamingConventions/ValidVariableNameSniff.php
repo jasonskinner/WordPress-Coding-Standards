@@ -7,9 +7,9 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
-if ( ! class_exists( 'PHP_CodeSniffer_Standards_AbstractVariableSniff', true ) ) {
-	throw new PHP_CodeSniffer_Exception( 'Class PHP_CodeSniffer_Standards_AbstractVariableSniff not found' );
-}
+namespace WordPressCS\WordPress\Sniffs\NamingConventions;
+
+use WordPressCS\WordPress\Sniff;
 
 /**
  * Checks the naming of variables and member variables.
@@ -23,7 +23,7 @@ if ( ! class_exists( 'PHP_CodeSniffer_Standards_AbstractVariableSniff', true ) )
  * Last synced with base class July 2014 at commit ed257ca0e56ad86cd2a4d6fa38ce0b95141c824f.
  * @link    https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Squiz/Sniffs/NamingConventions/ValidVariableNameSniff.php
  */
-class WordPress_Sniffs_NamingConventions_ValidVariableNameSniff extends PHP_CodeSniffer_Standards_AbstractVariableSniff {
+class ValidVariableNameSniff extends PHP_CodeSniffer_Standards_AbstractVariableSniff {
 
 	/**
 	 * PHP Reserved Vars.
@@ -301,10 +301,10 @@ class WordPress_Sniffs_NamingConventions_ValidVariableNameSniff extends PHP_Code
 			|| $this->customVariablesWhitelist !== $this->addedCustomProperties['variables']
 		) {
 			// Fix property potentially passed as comma-delimited string.
-			$customProperties = WordPress_Sniff::merge_custom_array( $this->customPropertiesWhitelist, array(), false );
+			$customProperties = Sniff::merge_custom_array( $this->customPropertiesWhitelist, array(), false );
 
 			if ( ! empty( $this->customVariablesWhitelist ) ) {
-				$customProperties = WordPress_Sniff::merge_custom_array(
+				$customProperties = Sniff::merge_custom_array(
 					$this->customVariablesWhitelist,
 					$customProperties,
 					false
@@ -317,7 +317,7 @@ class WordPress_Sniffs_NamingConventions_ValidVariableNameSniff extends PHP_Code
 				);
 			}
 
-			$this->whitelisted_mixed_case_member_var_names = WordPress_Sniff::merge_custom_array(
+			$this->whitelisted_mixed_case_member_var_names = Sniff::merge_custom_array(
 				$customProperties,
 				$this->whitelisted_mixed_case_member_var_names
 			);

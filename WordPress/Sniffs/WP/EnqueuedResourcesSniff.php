@@ -7,6 +7,8 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\WP;
+
 /**
  * Makes sure scripts and styles are enqueued and not explicitly echo'd.
  *
@@ -16,7 +18,7 @@
  *
  * @since   0.3.0
  */
-class WordPress_Sniffs_WP_EnqueuedResourcesSniff implements PHP_CodeSniffer_Sniff {
+class EnqueuedResourcesSniff implements PHP_CodeSniffer_Sniff {
 
 	/**
 	 * Returns an array of tokens this test wants to listen for.

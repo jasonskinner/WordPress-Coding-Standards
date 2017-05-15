@@ -7,9 +7,7 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
-if ( ! class_exists( 'Squiz_Sniffs_Arrays_ArrayDeclarationSniff', true ) ) {
-	throw new PHP_CodeSniffer_Exception( 'Class Squiz_Sniffs_Arrays_ArrayDeclarationSniff not found' );
-}
+namespace WordPressCS\WordPress\Sniffs\Arrays;
 
 /**
  * Enforces WordPress array format, based upon Squiz code.
@@ -19,7 +17,7 @@ if ( ! class_exists( 'Squiz_Sniffs_Arrays_ArrayDeclarationSniff', true ) ) {
  * @package WPCS\WordPressCodingStandards
  *
  * @since   0.11.0 - The WordPress specific additional checks have now been split off
- *                 from the WordPress_Sniffs_Arrays_ArrayDeclaration sniff into
+ *                 from the \WordPressCS\WordPress\Sniffs\Arrays\ArrayDeclaration sniff into
  *                 this sniff.
  *                 - Added sniffing & fixing for associative arrays.
  *
@@ -31,13 +29,13 @@ if ( ! class_exists( 'Squiz_Sniffs_Arrays_ArrayDeclarationSniff', true ) ) {
  * Last synced with parent class October 5 2016 at commit ea32814346ecf29791de701b3fa464a9ca43f45b.
  * @link    https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Squiz/Sniffs/Arrays/ArrayDeclarationSniff.php
  */
-class WordPress_Sniffs_Arrays_ArrayDeclarationSpacingSniff extends Squiz_Sniffs_Arrays_ArrayDeclarationSniff {
+class ArrayDeclarationSpacingSniff extends Squiz_Sniffs_Arrays_ArrayDeclarationSniff {
 
 	/**
 	 * Process a single line array.
 	 *
 	 * @since 0.5.0
-	 * @since 0.11.0 Moved from WordPress_Sniffs_Arrays_ArrayDeclaration to this sniff.
+	 * @since 0.11.0 Moved from \WordPressCS\WordPress\Sniffs\Arrays\ArrayDeclaration to this sniff.
 	 *
 	 * @param PHP_CodeSniffer_File $phpcsFile  The file being scanned.
 	 * @param int                  $stackPtr   The position of the current token
@@ -130,7 +128,7 @@ class WordPress_Sniffs_Arrays_ArrayDeclarationSpacingSniff extends Squiz_Sniffs_
 	 * (Don't) Process a multi-line array.
 	 *
 	 * {@internal Multi-line arrays are handled by the upstream sniff via the
-	 * WordPress_Sniffs_Arrays_ArrayDeclaration sniff.}}
+	 * WordPress.Arrays.ArrayDeclaration sniff.}}
 	 *
 	 * @param PHP_CodeSniffer_File $phpcsFile  The file being scanned.
 	 * @param int                  $stackPtr   The position of the current token

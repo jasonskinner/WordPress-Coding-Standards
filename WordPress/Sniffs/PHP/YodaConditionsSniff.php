@@ -7,6 +7,8 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\PHP;
+
 /**
  * Enforces Yoda conditional statements.
  *
@@ -16,7 +18,7 @@
  *
  * @since   0.3.0
  */
-class WordPress_Sniffs_PHP_YodaConditionsSniff implements PHP_CodeSniffer_Sniff {
+class YodaConditionsSniff implements PHP_CodeSniffer_Sniff {
 
 	/**
 	 * Returns an array of tokens this test wants to listen for.

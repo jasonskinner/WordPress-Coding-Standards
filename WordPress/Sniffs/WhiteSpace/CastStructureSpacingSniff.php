@@ -7,6 +7,8 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\WhiteSpace;
+
 /**
  * Ensure cast statements don't contain whitespace, but *are* surrounded by whitespace, based upon Squiz code.
  *
@@ -18,7 +20,7 @@
  * @since   0.11.0 This sniff now has the ability to fix the issues it flags.
  * @since   0.11.0 The error level for all errors thrown by this sniff has been raised from warning to error.
  */
-class WordPress_Sniffs_WhiteSpace_CastStructureSpacingSniff implements PHP_CodeSniffer_Sniff {
+class CastStructureSpacingSniff implements PHP_CodeSniffer_Sniff {
 
 	/**
 	 * Returns an array of tokens this test wants to listen for.

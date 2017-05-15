@@ -7,9 +7,7 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
-if ( ! class_exists( 'PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff', true ) ) {
-	throw new PHP_CodeSniffer_Exception( 'Class PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff not found' );
-}
+namespace WordPressCS\WordPress\Sniffs\NamingConventions;
 
 /**
  * Enforces WordPress function name and method name format, based upon Squiz code.
@@ -26,7 +24,7 @@ if ( ! class_exists( 'PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff', tru
  * {@internal While this class extends the PEAR parent, it does not actually use the checks
  * contained in the parent. It only uses the properties and the token registration from the parent.}}
  */
-class WordPress_Sniffs_NamingConventions_ValidFunctionNameSniff extends PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff {
+class ValidFunctionNameSniff extends PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff {
 
 	/**
 	 * Additional double underscore prefixed methods specific to certain PHP native extensions.

@@ -7,9 +7,7 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
-if ( ! class_exists( 'Squiz_Sniffs_Arrays_ArrayDeclarationSniff', true ) ) {
-	throw new PHP_CodeSniffer_Exception( 'Class Squiz_Sniffs_Arrays_ArrayDeclarationSniff not found' );
-}
+namespace WordPressCS\WordPress\Sniffs\Arrays;
 
 /**
  * Enforces WordPress array format, based upon Squiz code.
@@ -19,7 +17,7 @@ if ( ! class_exists( 'Squiz_Sniffs_Arrays_ArrayDeclarationSniff', true ) ) {
  * @package WPCS\WordPressCodingStandards
  *
  * @since   0.1.0
- * @since   0.5.0  Now extends `Squiz_Sniffs_Arrays_ArrayDeclarationSniff`.
+ * @since   0.5.0  Now extends `\PHP_CodeSniffer\Standards\Squiz\Sniffs\Arrays\ArrayDeclarationSniff`.
  * @since   0.11.0 The additional single-line array checks have been moved to their own
  *                 sniff WordPress.Arrays.ArrayDeclarationSpacing.
  *                 This class now only contains a slimmed down version of the upstream sniff.
@@ -38,7 +36,7 @@ if ( ! class_exists( 'Squiz_Sniffs_Arrays_ArrayDeclarationSniff', true ) ) {
  * Last synced with parent class October 5 2016 at commit ea32814346ecf29791de701b3fa464a9ca43f45b.
  * @link    https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/Squiz/Sniffs/Arrays/ArrayDeclarationSniff.php
  */
-class WordPress_Sniffs_Arrays_ArrayDeclarationSniff extends Squiz_Sniffs_Arrays_ArrayDeclarationSniff {
+class ArrayDeclarationSniff extends Squiz_Sniffs_Arrays_ArrayDeclarationSniff {
 
 	/**
 	 * Process a multi-line array.

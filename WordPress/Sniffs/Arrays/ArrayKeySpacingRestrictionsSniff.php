@@ -7,6 +7,8 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+namespace WordPressCS\WordPress\Sniffs\Arrays;
+
 /**
  * Check for proper spacing in array key references.
  *
@@ -17,7 +19,7 @@
  * @since   0.3.0
  * @since   0.7.0 This sniff now has the ability to fix a number of the issues it flags.
  */
-class WordPress_Sniffs_Arrays_ArrayKeySpacingRestrictionsSniff implements PHP_CodeSniffer_Sniff {
+class ArrayKeySpacingRestrictionsSniff implements PHP_CodeSniffer_Sniff {
 
 	/**
 	 * Returns an array of tokens this test wants to listen for.

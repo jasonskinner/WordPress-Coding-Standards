@@ -4,7 +4,6 @@ language:
     - php
 
 php:
-    - 5.3
     - 5.4
     - 5.5
     - 5.6
@@ -20,6 +19,9 @@ env:
 matrix:
   fast_finish: true
   include:
+    # Test PHP 5.3 only against PHPCS 2.x as PHPCS 3.x has a minimum requirement of PHP 5.4.
+    - php: 5.3
+      env: PHPCS_BRANCH=2.9
     # Run PHPCS against WPCS. I just picked to run it against 5.5.
     - php: 5.5
       env: PHPCS_BRANCH=master SNIFF=1

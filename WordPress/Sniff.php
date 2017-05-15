@@ -2155,7 +2155,7 @@ abstract class Sniff implements \PHP_CodeSniffer_Sniff {
 
 		return $namespaceName;
 	}
-
+// @todo remove or simplify function
 	/**
 	 * Check if a content string contains a specific html open tag.
 	 *

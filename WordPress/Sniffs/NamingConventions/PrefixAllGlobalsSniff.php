@@ -10,6 +10,7 @@
 namespace WordPressCS\WordPress\Sniffs\NamingConventions;
 
 use WordPressCS\WordPress\AbstractFunctionParameterSniff;
+use WordPressCS\WordPress\PHPCSHelper;
 
 /**
  * Verify that everything defined in the global namespace is prefixed with a theme/plugin specific prefix.
@@ -154,7 +155,7 @@ class PrefixAllGlobalsSniff extends AbstractFunctionParameterSniff {
 		}
 
 		// Allow overruling the prefixes set in a ruleset via the command line.
-		$cl_prefixes = trim( PHP_CodeSniffer::getConfigData( 'prefixes' ) );
+		$cl_prefixes = trim( PHPCSHelper::getConfigData( 'prefixes' ) );
 		if ( ! empty( $cl_prefixes ) ) {
 			$this->prefixes = $cl_prefixes;
 		}

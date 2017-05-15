@@ -7,6 +7,8 @@
  * @license https://opensource.org/licenses/MIT MIT
  */
 
+use WordPressCS\WordPress\PHPCSHelper;
+
 /**
  * Unit test class for the I18n sniff.
  *
@@ -20,7 +22,7 @@ class WordPress_Tests_WP_I18nUnitTest extends AbstractSniffUnitTest {
 	 */
 	protected function setUp() {
 		parent::setUp();
-		PHP_CodeSniffer::setConfigData( 'text_domain', 'my-slug,default', true );
+		PHPCSHelper::setConfigData( 'text_domain', 'my-slug,default', true );
 	}
 
 	/**
